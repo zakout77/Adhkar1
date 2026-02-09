@@ -678,7 +678,15 @@ body.dark .arabic{
 .arabic {
   margin-top: 40x;
 }
+* {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
+body {
+  -webkit-touch-callout: none;
+}
     </style>
 </head>
 <body>
@@ -4766,20 +4774,13 @@ wa binabíyyika alladhí arsalta.
 
  <div class="header">Adhkar del sueño</div> 
 
-<div class="arabic">
- سُبْحَانَ اللَّهِ
- </div> 
-<div class="repeat">Repeticiones: 33 veces</div> 
-<div class="counter"> 
-<button onclick="incLocal(this,33)">+</button>
-<div class="count">0 / 33</div>
- <div class="done"></div>
- </div>
- 
 
 <div class="arabic">
-الْحَمْدُ لِلَّهِ
- </div> 
+  <div class="dhikr-ar">سُبْحَانَ اللَّهِ</div>
+  <div class="dhikr-es">Glorificado sea Allah</div>
+  <div class="dhikr-pr">Subḥāna Allah</div>
+</div>
+
 <div class="repeat">Repeticiones: 33 veces</div> 
 <div class="counter"> 
 <button onclick="incLocal(this,33)">+</button>
@@ -4788,11 +4789,27 @@ wa binabíyyika alladhí arsalta.
  </div>
  
 <div class="arabic">
-اللَّهُ أَكْبَرُ
- </div> 
-<div class="repeat">Repeticiones: 34 veces</div> 
+  <div class="dhikr-ar">الحَمْـدُ لله</div>
+  <div class="dhikr-es">Glorificado sea Allah</div>
+  <div class="dhikr-pr">Subḥāna Allah</div>
+</div>
+
+<div class="repeat">Repeticiones: 33 veces</div> 
 <div class="counter"> 
 <button onclick="incLocal(this,33)">+</button>
+<div class="count">0 / 33</div>
+ <div class="done"></div>
+ </div>
+ 
+<div class="arabic">
+  <div class="dhikr-ar">اللهُ أكْـبَر</div>
+  <div class="dhikr-es">Glorificado sea Allah</div>
+  <div class="dhikr-pr">Subḥāna Allah</div>
+</div>
+
+<div class="repeat">Repeticiones: 34 veces</div> 
+<div class="counter"> 
+<button onclick="incLocal(this,34)">+</button>
 <div class="count">0 / 34</div>
  <div class="done"></div>
  </div>
@@ -6385,6 +6402,44 @@ function goHome(){
   resetAllCounts();
   show(0);
 }
+</script>
+<script>
+
+// منع النسخ
+document.addEventListener('copy', function(e){
+    e.preventDefault();
+});
+
+// منع القص
+document.addEventListener('cut', function(e){
+    e.preventDefault();
+});
+
+// منع التحديد
+document.addEventListener('selectstart', function(e){
+    e.preventDefault();
+});
+
+// منع الزر الأيمن
+document.addEventListener('contextmenu', function(e){
+    e.preventDefault();
+});
+
+// منع اختصارات الكيبورد
+document.addEventListener('keydown', function(e){
+
+    if(e.ctrlKey && (
+        e.key === 'c' ||
+        e.key === 'x' ||
+        e.key === 'a' ||
+        e.key === 'u' ||
+        e.key === 's'
+    )){
+        e.preventDefault();
+    }
+
+});
+
 </script>
 
 </body>
